@@ -7,7 +7,7 @@ import (
 )
 
 func NewComment(app *echo.Echo) {
-	app.GET("/comments", controller.GetAllCommentController)
+	app.GET("/comments", controller.GetAllCommentsController)
 	app.POST("/comments", controller.CreateCommentController)
 	app.DELETE("/comments/:id", controller.DeleteCommentByIDController)
 	app.PUT("/comments/:id", controller.UpdateCommentByIDController)

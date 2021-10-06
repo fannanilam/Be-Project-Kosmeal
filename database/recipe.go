@@ -7,7 +7,7 @@ import (
 
 func GetRecipes() []model.Recipe {
 	var recipes []model.Recipe
-	config.DB.Preload("FoodCategory").Find(&recipes)
+	config.DB.Preload("FoodCategory").Preload("Comments").Find(&recipes)
 	return recipes
 }
 

@@ -41,13 +41,13 @@ func UpdateUserByIDController(c echo.Context) error {
 	var user model.User
 	if err := c.Bind(&user); err != nil {
 		return c.JSON(http.StatusOK, echo.Map{
-			"message": "CreateUserController",
+			"message": "UpdateUserController",
 			"error":   err.Error(),
 		})
 	}
 	database.UpdateUserByID(id, user)
 	return c.JSON(http.StatusOK, echo.Map{
-		"message": "GetUserByIDController",
+		"message": "UpdateUserByIDController",
 		"data":    user,
 	})
 }

@@ -7,6 +7,5 @@ import (
 )
 
 func NewAdmin(app *echo.Echo) {
-	app.GET("/admins", controller.GetAllAdminController)
-
+	app.GET("/admin", controller.GetAllAdminController)
 }

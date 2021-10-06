@@ -8,7 +8,7 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func GetAllCommentController(c echo.Context) error {
+func GetAllCommentsController(c echo.Context) error {
 	comments := database.GetComments()
 
 	return c.JSON(http.StatusOK, echo.Map{
@@ -47,13 +47,13 @@ func UpdateCommentByIDController(c echo.Context) error {
 	var comment model.Comment
 	if err := c.Bind(&comment); err != nil {
 		return c.JSON(http.StatusOK, echo.Map{
-			"message": "CreateCommentController",
+			"message": "UpdateCommentController",
 			"error":   err.Error(),
 		})
 	}
 	database.UpdateCommentByID(id, comment)
 	return c.JSON(http.StatusOK, echo.Map{
-		"message": "GetCommentByIDController",
+		"message": "UpdateCommentByIDController",
 		"data":    comment,
 	})
 }

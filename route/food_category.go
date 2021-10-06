@@ -8,5 +8,5 @@ import (
 
 func NewFoodCategory(app *echo.Echo) {
 	app.GET("/foodcategories", controller.GetAllFoodCategoriesController)
-	app.GET("/foodcategory/:id", controller.GetFoodCategoryByIDController)
+	app.GET("/foodcategories/:id", controller.GetFoodCategoryByIDController)
 }

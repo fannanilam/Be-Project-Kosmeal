@@ -3,6 +3,7 @@ package controller
 import (
 	"kosmeal/database"
 	"kosmeal/model"
+	"kosmeal/openapi"
 	"net/http"
 
 	"github.com/labstack/echo/v4"
@@ -10,7 +11,13 @@ import (
 
 func GetAllRecipesController(c echo.Context) error {
 	recipes := database.GetRecipes()
-
+	for i := range recipes {
+		nutritions, err := openapi.GetNutritionController(recipes[i].NutritionURL)
+		if err != nil {
+			continue
+		}
+		recipes[i].Nutritions = nutritions
+	}
 	return c.JSON(http.StatusOK, echo.Map{
 		"message": "GetAllRecipesController",
 		"data":    recipes,
@@ -40,13 +47,13 @@ func UpdateRecipeByIDController(c echo.Context) error {
 	var recipe model.Recipe
 	if err := c.Bind(&recipe); err != nil {
 		return c.JSON(http.StatusOK, echo.Map{
-			"message": "CreateRecipeController",
+			"message": "UpdateRecipeController",
 			"error":   err.Error(),
 		})
 	}
 	database.UpdateRecipeByID(id, recipe)
 	return c.JSON(http.StatusOK, echo.Map{
-		"message": "GetRecipeByIDController",
+		"message": "UpdateRecipeByIDController",
 		"data":    recipe,
 	})
 }

@@ -1,0 +1,253 @@
+swagger: "2.0"
+
+info:
+  title: Kosmeal
+  description: Dokumentasi API backend project Kosmeal
+  version: v1.0
+  contact: 
+    email: fannanilam10@gmail.com
+  license:
+    name: Github
+    url: https://github.com/fannanilam/Project-Kosmeal/tree/master
+    
+tags:
+  - name: Admin
+    description: information about admin
+  - name: User
+    description: information about user
+  - name: Food Category
+    description: information about food category
+  - name: Recipe
+    description: information about recipe
+  - name: Nutrition
+    description: information about recipe nutrition
+  - name: Comment
+    description: information about recipe comment
+
+paths:
+  /:
+    get:
+      tags:
+        - default
+      summary: selamat datang user
+      description: endpoint untuk selamat datang user
+      responses:
+        "200":
+          description: success 
+        "400":
+          description: method not allowed  
+          
+  /login:
+    post:
+      tags:
+        - User
+      summary: login user
+      description: endpoint untuk login user 
+      responses:
+        "200":
+          description: success login
+        "400":
+          description: data input tidak sesuai
+         
+  /users: 
+    get:
+      tags:
+        - User
+      summary: get all users
+      description: endpoint untuk get all users
+      responses:
+        "200":
+          description: success get all users
+        "400":
+          description: method not allowed  
+          
+    post:
+      tags:
+        - User
+      summary: create user
+      description: endpoint untuk create user
+      responses:
+        "200":
+          description: success create user
+        "400":
+          description: method not allowed     
+          
+  /users/:id: 
+    get:
+      tags:
+        - User
+      summary: get user by id
+      description: endpoint untuk get user by id
+      responses:
+        "200":
+          description: success get user by id
+        "400":
+          description: method not allowed  
+    delete:
+      tags:
+        - User
+      summary: delete user by id
+      description: endpoint untuk delete user by id
+      responses:
+        "200":
+          description: success delete user by id
+        "400":
+          description: method not allowed  
+    put:
+      tags:
+        - User
+      summary: update user by id
+      description: endpoint untuk update user by id
+      responses:
+        "200":
+          description: success update user by id
+        "400":
+          description: method not allowed  
+          
+  /admin: 
+    get:
+      tags:
+        - Admin
+      summary: get admin
+      description: endpoint untuk get admin
+      responses:
+        "200":
+          description: success get admin
+        "400":
+          description: method not allowed  
+          
+  /foodcategories: 
+    get:
+      tags:
+        - Food Category
+      summary: get all food categories
+      description: endpoint untuk get all food categories
+      responses:
+        "200":
+          description: success get all food categories
+        "400":
+          description: method not allowed  
+          
+  /foodcategories/:id: 
+    get:
+      tags:
+        - Food Category
+      summary: get food category by id
+      description: endpoint untuk get food category by id
+      responses:
+        "200":
+          description: success get food category by id
+        "400":
+          description: method not allowed  
+          
+  /recipes: 
+    get:
+      tags:
+        - Recipe
+      summary: get all recipes
+      description: endpoint untuk get all recipes
+      responses:
+        "200":
+          description: success get all recipes
+        "400":
+          description: method not allowed
+          
+    post:
+      tags:
+        - Recipe
+      summary: post a recipe
+      description: endpoint untuk post a recipe
+      responses:
+        "200":
+          description: success post a recipe
+        "400":
+          description: method not allowed
+          
+  
+  /recipes/id: 
+    get:
+      tags:
+        - Recipe
+      summary: get recipe by id
+      description: endpoint untuk get recipe by id
+      responses:
+        "200":
+          description: success get recipe by id
+        "400":
+          description: method not allowed
+    put:
+      tags:
+        - Recipe
+      summary: update recipe by id
+      description: endpoint untuk update recipe by id
+      responses:
+        "200":
+          description: success update recipe by id
+        "400":
+          description: method not allowed
+    delete:
+      tags:
+        - Recipe
+      summary: delete recipe by id
+      description: endpoint untuk delete recipe by id
+      responses:
+        "200":
+          description: success delete recipe by id
+        "400":
+          description: method not allowed  
+    
+  /comments: 
+    get:
+      tags:
+        - Comment
+      summary: get all comments
+      description: endpoint untuk get all comments
+      responses:
+        "200":
+          description: success get all comments
+        "400":
+          description: method not allowed
+    post:
+      tags:
+        - Comment
+      summary: post a comment on a recipe
+      description: endpoint untuk post a comment on a recipe
+      responses:
+        "200":
+          description: success post a comment on a recipe
+        "400":
+          description: method not allowed
+          
+  /comments/id: 
+    delete:
+      tags:
+        - Comment
+      summary: delete comment by id
+      description: endpoint untuk delete comment by id
+      responses:
+        "200":
+          description: success delete comment by id
+        "400":
+          description: method not allowed
+    put:
+      tags:
+        - Comment
+      summary: update a comment by id
+      description: endpoint untuk update a comment by id
+      responses:
+        "200":
+          description: success update a comment by id
+        "400":
+          description: method not allowed
+          
+  /nutrition: 
+    get:
+      tags:
+        - Nutrition
+      summary: get recipes nutrition
+      description: endpoint untuk get recipes nutrition
+      responses:
+        "200":
+          description: success get recipes nutrition
+        "400":
+          description: method not allowed

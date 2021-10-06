@@ -1,12 +1,14 @@
 package config
 
 import (
-	//	"context"
+	"context"
 	"kosmeal/model"
-	//	"time"
+	"time"
 
+	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
-	//	"go.mongodb.org/mongo-driver/mongo/options"
+	"go.mongodb.org/mongo-driver/mongo/options"
+
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -23,10 +25,9 @@ func InitDB() {
 	}
 }
 
-/*
 func InitLog() {
 	var err error
-	DBLog, err = mongo.NewClient(options.Client().ApplyURI("mongodb//localhost:27017/kosmeal"))
+	DBLog, err = mongo.NewClient(options.Client().ApplyURI("mongodb://localhost:27017/kosmeal"))
 	if err != nil {
 		panic(err)
 	}
@@ -37,9 +38,9 @@ func InitLog() {
 		panic(err)
 	}
 
-	DBLog.ListDatabaseNames(ctx.bson.M{})
+	DBLog.ListDatabaseNames(ctx, bson.M{})
 }
-*/
+
 func InitMigration() {
 	DB.AutoMigrate(
 		&model.User{},
