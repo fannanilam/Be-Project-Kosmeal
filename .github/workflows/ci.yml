@@ -42,7 +42,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            docker pull fannanilam/kosmeal-go; \
-            docker rm -f kosmeal_go; \
-            docker run -d --network host --name kosmeal_go fannanilam/kosmeal-go
+            sudo docker pull fannanilam/kosmeal-go; \
+            sudo docker rm -f kosmeal_go; \
+            sudo docker run -d --network host --name kosmeal_go fannanilam/kosmeal-go
   
