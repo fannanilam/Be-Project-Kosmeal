@@ -15,8 +15,8 @@ jobs:
       with:
         go-version: 1.17
 
-    - name: Test
-      run: go test -v ./...
+#     - name: Test
+#       run: go test -v ./...
       
     - name: Login to DockerHub
       uses: docker/login-action@v1
@@ -42,7 +42,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            sudo docker pull fannanilam/kosmeal-go; \
-            sudo docker rm -f kosmeal_go; \
-            sudo docker run -d --network host --name kosmeal_go fannanilam/kosmeal-go
+            docker pull fannanilam/kosmeal-go; \
+            docker rm -f kosmeal_go; \
+            docker run -d --network host --name kosmeal_go fannanilam/kosmeal-go
   
