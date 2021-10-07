@@ -44,5 +44,5 @@ jobs:
           script: |
             docker pull fannanilam/kosmeal; \
             docker rm -f kosmeal; \
-            docker run -d --network host --name kosmeal fannanilam/kosmeal
+            docker run -d -p 8080:8080 --name kosmeal fannanilam/kosmeal
   
